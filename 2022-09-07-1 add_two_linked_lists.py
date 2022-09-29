@@ -1,16 +1,10 @@
-# What I learned:
-# On the output you can simply ignore the first node by calling next
-# That improves you writing cleaner code on the while loop
-# 
-# The break variables can easily occupy the place of the "while True"
-# 
-# Instead of verifying if the partial result is greather than 10 for calculating the carry,
-# it's cleaner to just to that immediately
-
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
 
+
+        # On the output you can simply ignore the first node by calling next
+        # That improves you writing cleaner code on the while loop
         output_root = ListNode()
         output = output_root
         
@@ -29,6 +23,8 @@ class Solution:
                 partialResult += l2.val
                 l2 = l2.next
 
+            # Instead of verifying if the partial result is greather than 10 for calculating the carry,
+            # it's cleaner to just to that immediately
             carry = partialResult // 10
             partialResult = partialResult % 10            
            

@@ -1,5 +1,4 @@
-### We don't need to revert the whole number
-### Insted we could aproximate it to the half
+
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         
@@ -14,6 +13,8 @@ class Solution:
                 
 
         revertedNumber = 0
+        ### We don't need to revert the whole number
+        ### Insted we could aproximate it to the half
         while x > revertedNumber:
             revertedNumber = revertedNumber * 10 + x % 10
             x = x // 10

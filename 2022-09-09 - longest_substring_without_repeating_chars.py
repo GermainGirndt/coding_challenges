@@ -22,21 +22,9 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         
-
-        print(f"Running with string '{s}'")
-        
         chars_seen = {}
         max_length = start = 0
         for index, char in enumerate(s):
-            print("Chars seen: ")
-            print(chars_seen)
-            print("Max Length: ")
-            print(max_length)
-            print("Start: ")
-            print(start)
-
-            print(f"Index: {index} | Current char {char}")
-
             if char in chars_seen and start <= chars_seen[char]:
                 start = chars_seen[char] + 1
             else:
@@ -44,7 +32,6 @@ class Solution:
 
             chars_seen[char] = index
 
-            print("--------")
 
 
         return max_length

@@ -28,7 +28,6 @@ class Solution:
         index = len(s) - 1
         while( index >= 0):
             
-            print(index)
             romanNumber = s[index]
             
             if index > 0:
