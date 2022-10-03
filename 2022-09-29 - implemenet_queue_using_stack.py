@@ -1,3 +1,10 @@
+#A Queue operates following the FIFO-Order
+#An Stack using the LIFO
+
+#We can use two stacks: stackIn and stackOut
+#By popping elements from stackIn to stackOut,
+# we’re able to reverse the ordering in such a way that the last elements of stackOut are always the first elements of stackIn.
+
 class MyQueue(object):
     
     def __init__(self):
@@ -53,14 +60,8 @@ class MyQueue(object):
         return stack.pop(self.getLastIndex(stack))
 
 
-# Your MyQueue object will be instantiated and called as such:
-# obj = MyQueue()
-# obj.push(x)
-# param_2 = obj.pop()
-# param_3 = obj.peek()
-# param_4 = obj.empty()
+#########################
 
-##########
 class MyQueueTwo(object):
 
     stackOne = None
@@ -127,11 +128,3 @@ class MyQueueTwo(object):
     
     def getLastIndex(self, stack):
         return len(stack) - 1
-
-
-# Your MyQueue object will be instantiated and called as such:
-# obj = MyQueue()
-# obj.push(x)
-# param_2 = obj.pop()
-# param_3 = obj.peek()
-# param_4 = obj.empty()
