@@ -1,13 +1,5 @@
 # 4. Median of Two Sorted Arrays
-# Hard
 
-# 19313
-
-# 2208
-
-# Add to List
-
-# Share
 # Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
 
 # The overall run time complexity should be O(log (m+n)).
@@ -32,34 +24,36 @@
 
 class Solution:
     def findMedianSortedArrays(self, A, B):
-        l = len(A) + len(B)
-        if l % 2 == 1:
-            return self.kth(A, B, l // 2)
+        totalLength = len(A) + len(B)
+        if totalLength % 2 == 1:
+            return self.kth(A, B, totalLength // 2)
         else:
-            return (self.kth(A, B, l // 2) + self.kth(A, B, l // 2 - 1)) / 2.   
+            medianLeft = self.kth(A, B, totalLength // 2 - 1)
+            medianRight = self.kth(A, B, totalLength // 2)
+            return ( medianLeft + medianRight) / 2
         
     def kth(self, a, b, k):
         if not a:
             return b[k]
         if not b:
             return a[k]
-        ia, ib = len(a) // 2 , len(b) // 2
-        ma, mb = a[ia], b[ib]
+        iA, iB = len(a) // 2 , len(b) // 2
+        ma, mb = a[iA], b[iB]
         
         # when k is bigger than the sum of a and b's median indices 
-        if ia + ib < k:
+        if iA + iB < k:
             # if a's median is bigger than b's, b's first half doesn't include k
             if ma > mb:
-                return self.kth(a, b[ib + 1:], k - ib - 1)
+                return self.kth(a, b[iB + 1:], k - iB - 1)
             else:
-                return self.kth(a[ia + 1:], b, k - ia - 1)
+                return self.kth(a[iA + 1:], b, k - iA - 1)
         # when k is smaller than the sum of a and b's indices
         else:
             # if a's median is bigger than b's, a's second half doesn't include k
             if ma > mb:
-                return self.kth(a[:ia], b, k)
+                return self.kth(a[:iA], b, k)
             else:
-                return self.kth(a, b[:ib], k)
+                return self.kth(a, b[:iB], k)
 
 
 

@@ -1,3 +1,22 @@
+# Longest Palindromic Substring
+
+# Given a string s, return the longest palindromic substring in s.
+# A string is called a palindrome string if the reverse of that string is the same as the original string.
+
+# Input: s = "babad"
+# Output: "bab"
+# Explanation: "aba" is also a valid answer.
+
+# Input: s = "cbbd"
+# Output: "bb"
+
+
+
+
+# The trick is to expand around the palindrome's center
+# Due to it's nature, the palindromic center can have 1 or two letters.
+# We have then to expand for this two cases
+# There are 2n−1 such centers.
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         
@@ -14,18 +33,19 @@ class Solution:
         return longestPalindrome
     
     
-    def getLongestPalindromeForMiddleIndexes(self, string, left, right):
+    def getLongestPalindromeForMiddleIndexes(self, string, leftIndex, rightIndex):
         palindrome = ""
 
-        if left == right:
-            palindrome = palindrome = string[left] + palindrome
-            left -= 1
-            right += 1
+        # first iteration of just one letter on the center
+        if leftIndex == rightIndex:
+            palindrome = string[leftIndex]
+            leftIndex -= 1
+            rightIndex += 1
 
-        while left >= 0 and right < len(string) and string[left] == string[right]:
-            palindrome = string[left] + palindrome + string[right]
-            left -= 1
-            right += 1
+        while leftIndex >= 0 and rightIndex < len(string) and string[leftIndex] == string[rightIndex]:
+            palindrome = string[leftIndex] + palindrome + string[rightIndex]
+            leftIndex -= 1
+            rightIndex += 1
         
         return palindrome
             

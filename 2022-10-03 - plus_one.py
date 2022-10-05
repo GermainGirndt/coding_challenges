@@ -1,7 +1,13 @@
+# You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+
+# Increment the large integer by one and return the resulting array of digits.
+
+ 
+
+
 # The Solution consists of traversing the array from right to left
 # In each iteration we're incrementing the number and
 # if a carry is generated, repeating the process
-
 class Solution(object):
     def plusOne(self, digits):
         """

@@ -22,7 +22,7 @@ class Solution:
             
             opening_expected = corresponding_opening.get(char)
             
-            if opening_expected: # is closing
+            if opening_expected: # actual is closing
                 
                 areThereOpeningsLeftToClose = len(stack) != 0 
                 if not areThereOpeningsLeftToClose:
